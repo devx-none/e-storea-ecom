@@ -38,11 +38,11 @@ class Cart {
         }
     }
 
-    public function Delete($id,$userID){
+    public function Delete($id){
         
-        $this->db->query("DELETE  FROM cart WHERE ProductID=:id AND userID=:userID");
+        $this->db->query("DELETE  FROM cart WHERE id=:id ");
         $this->db->bind(':id',$id);
-        $this->db->bind(':userID',$userID);
+        // $this->db->bind(':userID',$userID);
         
         $this->db->execute();
         
@@ -53,7 +53,7 @@ class Cart {
         }
     }
     public function cart($id){
-        $this->db->query("SELECT p.* FROM cart c ,products p ,users u WHERE c.userID=u.userID AND c.productID=p.productID AND c.userID=:userID");
+        $this->db->query("SELECT p.*,c.quantity as Qty ,c.id FROM cart c ,products p ,users u WHERE c.userID=u.userID AND c.productID=p.productID AND c.userID=:userID");
         $this->db->bind(':userID',$id);
 
         return $this->db->resultSet();

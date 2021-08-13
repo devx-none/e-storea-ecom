@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap");
-
+/*Main color*/
+$primary:#03cad8;
 * {
     margin: 0;
     padding: 0;
@@ -192,8 +193,14 @@ body {
 
                     .iconBox {
                         font-size: 2.5em;
-                        color: #03a9f4;
+                        color: #03cad8;
+                        .far{
+                            
+                        color: #EFD65F;
+                            
+                        }
                     }
+                    
                 }
             }
 
@@ -202,7 +209,7 @@ body {
                 width: 100%;
                 padding: 20px;
                 display: grid;
-                grid-gap :20px;
+                grid-gap: 20px;
                 grid-template-columns: 2fr 1fr;
 
                 .recentOrders {
@@ -248,8 +255,9 @@ body {
                         }
 
                         tbody {
+                            overflow-y: auto;
                             tr:hover {
-                                background: #03a9f4;
+                                background: #03cad8;
                                 color: #fff;
 
                                 td:last-child {
@@ -317,32 +325,67 @@ body {
                             font-size: 14px;
                             font-weight: 300;
                             letter-spacing: 1px;
-
                             
+
                         }
+
                         .status.delivered {
-                                background: #8de02c;
-                            }
+                            background: #8de02c;
+                        }
 
-                            .status.pending {
-                                background: #f9ca3f;
-                            }
+                        .status.pending {
+                            background: #f9ca3f;
+                        }
 
-                            .status.return {
-                                background: #f00;
-                            }
+                        .status.return {
+                            background: #f00;
+                        }
 
-                            .status.inprogress {
-                                background: #1795ce;
-                            }
+                        .status.inprogress {
+                            background: #1795ce;
+                        }
                     }
                 }
+
                 .recentCustomers {
                     position: relative;
                     display: grid;
                     min-height: 530px;
                     background: #fff;
                     padding: 20px;
+
+                    table {
+                        tr {
+                            td {
+                                padding: 7px 10px;
+
+                                h4 {
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    line-height: 1.2em;
+
+                                    span {
+                                        font-size: 14px;
+                                        color: #999;
+                                    }
+                                }
+                            }
+                        }
+
+                        tr:hover {
+                            background: #03cad8;
+                            color: #fff;
+                        }
+                    }
+
+                    .fas {
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+
                 }
             }
         }
@@ -350,6 +393,107 @@ body {
         .main.active {
             width: calc(100% - 60px);
             left: 60px;
+        }
+    }
+}
+
+/* responsive */
+@media (max-width: 992px) {
+    body {
+    .container {
+        .navigation {
+            left: -300px;
+        }
+
+        .navigation.active {
+            left: 0;
+            width: 300px;
+        }
+
+        .main {
+            width: 100%;
+            left: 0;
+
+            .cardBox {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+            }
+        }
+
+        .main.active {
+            width: calc(100% - 300px);
+            left: 300px;
+        }
+    }
+}
+
+}
+@media (max-width:758px){
+    body {
+        .container{
+            .main {
+                .details{
+                    grid-template-columns: repeat(1,1fr);
+                    .recentOrders{
+                        .cardHearder{
+                            h2{
+                                font-weight: 600;
+                                font-size: 18px;
+
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+@media (max-width: 480px) {
+    body{
+        .container{
+            .main{
+                width: 100%;
+                left: 0;
+                .cardBox{
+                    grid-template-columns: repeat(1,1fr);
+                }
+                .details {
+                    .recentOrders{
+                        table{
+                            width: 600px;
+                        }
+                        overflow-x: auto;
+                    }
+
+                }
+                .topbar{
+                    .toggle.active{
+                        z-index: 10000;
+                        right:0;
+                        left:initial;
+                        position:fixed;
+                    }
+                    .toggle.active::before{
+                        color: #fff;
+                    }
+                }
+            }
+            .main.active{
+                width: 100%;
+                left: 0;
+            }
+            .navigation{
+                width: 100%;
+                left: -100%;
+                z-index: 1000;
+            }
+            .navigation.active{
+                width:100%;
+                left: 0;
+            }
+
         }
     }
 }

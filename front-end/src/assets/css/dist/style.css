@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap");
+/*Main color*/
 * {
   margin: 0;
   padding: 0;
@@ -171,7 +172,10 @@ body .container .main .cardBox .card .cardName {
 }
 body .container .main .cardBox .card .iconBox {
   font-size: 2.5em;
-  color: #03a9f4;
+  color: #03cad8;
+}
+body .container .main .cardBox .card .iconBox .far {
+  color: #EFD65F;
 }
 body .container .main .details {
   position: relative;
@@ -213,8 +217,11 @@ body .container .main .details .recentOrders table tr td {
 body .container .main .details .recentOrders table tr td:last-child {
   text-align: right;
 }
+body .container .main .details .recentOrders table tbody {
+  overflow-y: auto;
+}
 body .container .main .details .recentOrders table tbody tr:hover {
-  background: #03a9f4;
+  background: #03cad8;
   color: #fff;
 }
 body .container .main .details .recentOrders table tbody tr:hover td:last-child {
@@ -277,7 +284,99 @@ body .container .main .details .recentCustomers {
   background: #fff;
   padding: 20px;
 }
+body .container .main .details .recentCustomers table tr td {
+  padding: 7px 10px;
+}
+body .container .main .details .recentCustomers table tr td h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2em;
+}
+body .container .main .details .recentCustomers table tr td h4 span {
+  font-size: 14px;
+  color: #999;
+}
+body .container .main .details .recentCustomers table tr:hover {
+  background: #03cad8;
+  color: #fff;
+}
+body .container .main .details .recentCustomers .fas {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 body .container .main.active {
   width: calc(100% - 60px);
   left: 60px;
+}
+
+/* responsive */
+@media (max-width: 992px) {
+  body .container .navigation {
+    left: -300px;
+  }
+  body .container .navigation.active {
+    left: 0;
+    width: 300px;
+  }
+  body .container .main {
+    width: 100%;
+    left: 0;
+  }
+  body .container .main .cardBox {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  body .container .main.active {
+    width: calc(100% - 300px);
+    left: 300px;
+  }
+}
+@media (max-width: 758px) {
+  body .container .main .details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  body .container .main .details .recentOrders .cardHearder h2 {
+    font-weight: 600;
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px) {
+  body .container .main {
+    width: 100%;
+    left: 0;
+  }
+  body .container .main .cardBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  body .container .main .details .recentOrders {
+    overflow-x: auto;
+  }
+  body .container .main .details .recentOrders table {
+    width: 600px;
+  }
+  body .container .main .topbar .toggle.active {
+    z-index: 10000;
+    right: 0;
+    left: initial;
+    position: fixed;
+  }
+  body .container .main .topbar .toggle.active::before {
+    color: #fff;
+  }
+  body .container .main.active {
+    width: 100%;
+    left: 0;
+  }
+  body .container .navigation {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+  body .container .navigation.active {
+    width: 100%;
+    left: 0;
+  }
 }

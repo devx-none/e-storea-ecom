@@ -1,6 +1,9 @@
 <?php
 
-
+header('Access-Control-Allow-Origin:*');
+header('Content-Type: application/json');
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods,Authorization, X-Requested-with');
 class Carts extends Controller{
 
     public function __construct(){
@@ -36,11 +39,11 @@ class Carts extends Controller{
         }
     }
     //Delete Product Controller
-    public function Delete($id,$userID){
+    public function Delete($id){
         $data = file_get_contents("php://input");
         $data = json_decode($data);
         // print_r($data);
-        $deleteProduct = $this->cartModel->Delete($id,$userID);
+        $deleteProduct = $this->cartModel->Delete($id);
         if($deleteProduct){
             print_r(json_encode("delete successfly"));
 

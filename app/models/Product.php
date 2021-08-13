@@ -59,5 +59,18 @@ class Product {
         $this->db->query("SELECT * FROM products ");
         return $this->db->resultSet();
     }
+    public function SingleProduct($id)
+    {
+        $this->db->query("SELECT * FROM products where ProductID=:id");
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+        return $this->db->resultSet();
+
+    }
+    public function NewArrival()
+    {
+        $this->db->query("SELECT * FROM `products` ORDER BY created_at DESC LIMIT 4 ");
+        return $this->db->resultSet();
+    }
 
 }

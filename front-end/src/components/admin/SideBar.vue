@@ -3,18 +3,18 @@
         <ul>
             <li>
                 <a href="#">
-                <span class="icon"></span>
+                <span class="icon"><i class="fas fa-store"></i></span>
                 <span class="title">E - Storea</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/admin/dashboard">
                 <span class="icon"><i class="fas fa-home"></i></span>
                 <span class="title">Dashboard</span>
                 </a>
             </li>
              <li>
-                <a href="#">
+                <a href="/admin/orders">
                 <span class="icon"><i class="fas fa-shopping-bag"></i></span>
                 <span class="title">Orders</span>
                 </a>
@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/admin/customers">
                 <span class="icon"><i class="fas fa-users"></i></span>
                 <span class="title">Customers</span>
                 </a>

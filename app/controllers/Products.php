@@ -1,6 +1,9 @@
 <?php
 
-
+header('Access-Control-Allow-Origin:*');
+header('Content-Type: application/json');
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods,Authorization, X-Requested-with');
 class Products extends Controller{
 
     public function __construct(){
@@ -52,6 +55,25 @@ class Products extends Controller{
     public function ListProduct(){
         
         print_r(json_encode($products = $this->productModel->ListProducts()));
+    }
+    public function SingleProduct()
+    {
+        $data = file_get_contents("php://input");
+        $data = json_decode($data);
+        $id = $data->id;
+        $products = $this->productModel->SingleProduct($id);
+        // print_r($data);
+        // $singleProduct = $this->productModel->SingleProduct($id);
+        echo json_encode($products, JSON_PRETTY_PRINT);
+
+       
+    }
+
+    //NEW ARRIVAL 
+    public function NewArrival()
+    {
+
+        print_r(json_encode($products = $this->productModel->NewArrival()));
     }
 
 

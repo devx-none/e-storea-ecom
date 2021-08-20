@@ -3,7 +3,7 @@
   <header class="py-4 shadow-sm lg:bg-white">
     <div class="container flex items-center justify-between">
       <!-- logo -->
-      <a href="#" class="block w-34">
+      <a href="/" class="block w-34">
         <span id="logo" class="text-primary text-4xl font-bold"> E </span> <span class="text-3xl font-semibold">- storea</span>
       </a>
       <!-- logo end -->
@@ -24,14 +24,13 @@
             rounded-l-md
             focus:ring-primary focus:border-primary
           "
-          placeholder="search"
+          placeholder="search by name"
         />
         <button
           type="submit"
           class="
             bg-primary
             border border-primary
-            text-white
             px-8
             font-medium
             rounded-r-md
@@ -39,7 +38,7 @@
             transition
           "
         >
-          Search
+          Search 
         </button>
       </div>
       <!-- searchbar end -->
@@ -102,7 +101,7 @@
               bg-primary
               text-white text-xs
             "
-            v-for="count in countP" :key="count">{{countP.NbrProduct}}</span
+            v-for="count in countP" :key="count">{{count.NbrProduct}}</span
           >
           <div class="text-2xl">
             <i class="fas fa-shopping-bag"></i>
@@ -110,7 +109,7 @@
           <div class="text-xs leading-3">Cart</div>
         </a>
         <a
-          href="account.html"
+          href="/account"
           class="block text-center text-gray-700 hover:text-primary transition"
         >
           <div class="text-2xl">
@@ -167,7 +166,7 @@
               href="#"
               class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
             >
-              <img src="category-1.jpg" class="w-5 h-5 object-contain" />
+              <img :src="require('../assets/images/icons/gaming-pc.svg')" class="w-5 h-5 object-contain" />
               <span class="ml-6 text-gray-600 text-sm">Gaming PC</span>
             </a>
             <!-- single category end -->
@@ -176,7 +175,7 @@
               href="#"
               class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
             >
-              <img src="../../../assets/images/icons/sofa.svg" class="w-5 h-5 object-contain" />
+              <img :src="require('../assets/images/icons/souris-sans-fil.svg')" class="w-5 h-5 object-contain" />
               <span class="ml-6 text-gray-600 text-sm">Peripherals</span>
             </a>
             <!-- single category end -->
@@ -186,10 +185,10 @@
               class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
             >
               <img
-                src="images/icons/office.svg"
+                :src="require('../assets/images/icons/computer.svg')"
                 class="w-5 h-5 object-contain"
               />
-              <span class="ml-6 text-gray-600 text-sm">Office</span>
+              <span class="ml-6 text-gray-600 text-sm">Networking</span>
             </a>
             <!-- single category end -->
             <!-- single category -->
@@ -198,35 +197,17 @@
               class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
             >
               <img
-                src="images/icons/terrace.svg"
+                :src="require('../assets/images/icons/browser.svg')"
                 class="w-5 h-5 object-contain"
               />
-              <span class="ml-6 text-gray-600 text-sm">Outdoor</span>
+              <span class="ml-6 text-gray-600 text-sm">Software & Services</span>
             </a>
             <!-- single category end -->
             <!-- single category -->
-            <a
-              href="#"
-              class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
-            >
-              <img
-                src="images/icons/bed-2.svg"
-                class="w-5 h-5 object-contain"
-              />
-              <span class="ml-6 text-gray-600 text-sm">Mattress</span>
-            </a>
+           
             <!-- single category end -->
             <!-- single category -->
-            <a
-              href="#"
-              class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
-            >
-              <img
-                src="images/icons/restaurant.svg"
-                class="w-5 h-5 object-contain"
-              />
-              <span class="ml-6 text-gray-600 text-sm">Sofa</span>
-            </a>
+            
             <!-- single category end -->
           </div>
         </div>
@@ -241,7 +222,7 @@
               >Home</a
             >
             <a
-              href="shop.html"
+              href="/shop"
               class="text-gray-200 hover:text-white transition"
               >Shop</a
             >
@@ -253,7 +234,7 @@
             >
           </div>
           <a
-            href="login.html"
+            href="/login"
             class="
               ml-auto
               justify-self-end
@@ -443,11 +424,24 @@ export default {
   created(){
     this.count();
   },
+  mounted: function () {
+    let menuBar = document.querySelector('#menuBar')
+        let mobileMenu = document.querySelector('#mobileMenu')
+        let closeMenu = document.querySelector('#closeMenu')
+
+        menuBar.addEventListener('click', function(){
+            mobileMenu.classList.remove('hidden')
+        })
+
+        closeMenu.addEventListener('click', function(){
+            mobileMenu.classList.add('hidden')
+        })
+  },
   
   methods: {
          
     count() {
-        var id ='4ffacfcf-de4d-11eb-b9b0-747827';
+        var id =localStorage.getItem("userID");
       axios
         .get("http://localhost:7882/e-storea/carts/cart/"+id)
         .then((response) => (this.countP = response.data))
@@ -458,17 +452,7 @@ export default {
       // this.$emit("clicked", "someValue");
     },
  
-    menuBar() {
-      let mobileMenu = document.querySelector("#mobileMenu");
-
-      mobileMenu.classList.remove("hidden");
-    },
-    closeMenu() {
-      let mobileMenu = document.querySelector("#mobileMenu");
-
-      mobileMenu.classList.add("hidden");
-    },
-
+  
  
 }
 };

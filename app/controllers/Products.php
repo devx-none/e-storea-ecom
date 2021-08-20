@@ -53,20 +53,28 @@ class Products extends Controller{
     }
     //Read 
     public function ListProduct(){
-        
-        print_r(json_encode($products = $this->productModel->ListProducts()));
+        $products = $this->productModel->ListProducts();
+        echo json_encode($products, JSON_PRETTY_PRINT);
     }
-    public function SingleProduct()
+    public function SingleProduct($id)
     {
         $data = file_get_contents("php://input");
         $data = json_decode($data);
-        $id = $data->id;
         $products = $this->productModel->SingleProduct($id);
         // print_r($data);
         // $singleProduct = $this->productModel->SingleProduct($id);
         echo json_encode($products, JSON_PRETTY_PRINT);
 
        
+    }
+    public function ProductByCategory()
+    {
+        $data = file_get_contents("php://input");
+        $data = json_decode($data);
+        $category = $data->category;
+        $products = $this->productModel->ProductByCategory($category);
+    
+        echo json_encode($products, JSON_PRETTY_PRINT);
     }
 
     //NEW ARRIVAL 

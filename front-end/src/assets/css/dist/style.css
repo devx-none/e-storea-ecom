@@ -15,6 +15,9 @@ body .container {
   position: relative;
   width: 100%;
 }
+.primary{
+  color:#EFD65F;
+}
 body .container .navigation {
   position: fixed;
   width: 300px;
@@ -92,11 +95,10 @@ body .container .main .topbar .toggle {
   position: relative;
   width: 60px;
   height: 60px;
-  background: #efd65f;
   cursor: pointer;
 }
 body .container .main .topbar .toggle::before {
-  content: "";
+  
   font-family: FontAwesome;
   font-weight: 400;
   position: absolute;

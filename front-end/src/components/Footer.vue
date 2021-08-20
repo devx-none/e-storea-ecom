@@ -6,7 +6,11 @@
             <div class="xl:grid xl:grid-cols-3 xl:gap-8">
                 <!-- footer text -->
                 <div class="space-y-8 xl:col-span-1">
-                    <img class="w-30" src="images/logo.svg" alt="Company name">
+                      <!-- logo -->
+      <a href="#" class="block w-34">
+        <span id="logo" class="text-primary text-4xl font-bold"> E </span> <span class="text-3xl font-semibold">- storea</span>
+      </a>
+      <!-- logo end -->
                     <p class="text-gray-500 text-base">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio facere rem
                     </p>
@@ -118,9 +122,9 @@
     <!-- copyright -->
     <div class="bg-gray-800 py-4">
         <div class="container flex items-center justify-between">
-            <p class="text-white">© RAFCART - All Rights Reserved</p>
+            <p class="text-white">© E - STOREA - All Rights Reserved</p>
             <div>
-                <img src="images/methods.png" class="h-5">
+                <img :src="require('../assets/images/methods.png')" class="h-5">
             </div>
         </div>
     </div>

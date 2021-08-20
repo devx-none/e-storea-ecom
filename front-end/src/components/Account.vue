@@ -4,7 +4,7 @@
             <!-- account profile -->
             <div class="px-4 py-3 shadow flex items-center gap-4">
                 <div class="flex-shrink-0">
-                    <img src="images/avatar.png" class="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover">
+                    <img :src="require('../assets/images/avatar.png')" class="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover">
                 </div>
                 <div>
                     <p class="text-gray-600">Hello,</p>

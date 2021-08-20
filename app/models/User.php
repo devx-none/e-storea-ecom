@@ -6,13 +6,12 @@ class User {
     public function __construct(){
         $this->db = new Database ;
     }
-    public function register($first_name,$last_name,$email,$password,$phone){
-        $this->db->query("INSERT INTO users(userID,FirstName,LastName,Email,Password,phone) VALUES(UUID(),:first_name,:last_name,:email,:password,:phone)");
+    public function register($first_name,$last_name,$email,$password){
+        $this->db->query("INSERT INTO users(userID,FirstName,LastName,Email,Password) VALUES(UUID(),:first_name,:last_name,:email,:password)");
         $this->db->bind(':first_name',$first_name);
         $this->db->bind(':last_name',$last_name);
         $this->db->bind(':email',$email);
         $this->db->bind(':password',$password);
-        $this->db->bind(':phone',$phone);
         $this->db->execute();
         if($this->db->rowCount()>0){
             return true;
@@ -25,11 +24,8 @@ class User {
         $this->db->bind(':email',$email);
         $this->db->bind(':password',$password);
         $this->db->execute();
-        if($this->db->rowCount()>0){
-            return true;
-        }else{
-            return false;
-        }
+        return $this->db->resultSet();
+
     }
 
 }

@@ -11,7 +11,7 @@ class Users extends Controller{
         $data = json_decode($data);
         $hashPass = password_hash($data->password, PASSWORD_DEFAULT);
         
-        $register = $this->userModel->register($data->first_name,$data->last_name,$data->email,$hashPass,$data->phone);
+        $register = $this->userModel->register($data->first_name,$data->last_name,$data->email,$hashPass);
         if($register==true){
             print_r(json_encode("Welcome"));
         }else{
@@ -24,13 +24,8 @@ class Users extends Controller{
         $data = json_decode($data);
         
         $login = $this->userModel->login($data->email,$data->password);
-        if($login){
-        print_r(json_encode("login successfly"));
-         
-        }else{
-        print_r(json_encode("password or email incorrect"));
+        echo json_encode($login, JSON_PRETTY_PRINT);
 
-        }
     }
 
 

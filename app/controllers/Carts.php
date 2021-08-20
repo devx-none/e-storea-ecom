@@ -14,7 +14,7 @@ class Carts extends Controller{
         $data = file_get_contents("php://input");
         $data = json_decode($data);
         // print_r($data);
-        $addcart = $this->cartModel->AddToCart($data->userID,$data->productID,$data->Quantity);
+        $addcart = $this->cartModel->AddToCart($data->userID,$data->ProductID,$data->Quantity);
         if($addcart==true){
             print_r(json_encode("add To Cart"));
 

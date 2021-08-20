@@ -18,10 +18,9 @@ class wishlist {
         }
     }
 
-    public function DeleteWishlist($userID,$productID){
-        $this->db->query("DELETE FROM wishlist WHERE userID:userID AND productID:product");
-        $this->db->bind(':userID',$userID);
-        $this->db->bind(':productID',$productID);
+    public function DeleteWishlist($id){
+        $this->db->query("DELETE FROM wishlist WHERE id=:id ");
+        $this->db->bind(':id',$id);
         $this->db->execute();
         if($this->db->rowCount()>0){
             return true;
@@ -30,10 +29,11 @@ class wishlist {
         }
     }
     public function wishlist($userID){
-        $this->db->query("SELECT p.* FROM wishlist w ,products p,users u WHERE w.productID=p.productID AND w.userID=u.userID AND w.userID=:userID ");
+        $this->db->query("SELECT p.*,w.id FROM wishlist w ,products p,users u WHERE w.productID=p.productID AND w.userID=u.userID AND w.userID=:userID ");
         $this->db->bind(':userID',$userID);
         return $this->db->resultSet();
 
     }
+    
 
 }

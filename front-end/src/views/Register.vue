@@ -14,19 +14,25 @@
                 <div class="space-y-4">
                     <div>
                         <label class="text-gray-600 mb-2 block">
-                            Full Name <span class="text-primary">*</span>
+                            First Name <span class="text-primary">*</span>
                         </label>
-                        <input type="text" class="input-box" placeholder="John Doe">
+                        <input type="text" class="input-box" placeholder="elmahdi" v-model="first_name">
+                    </div>
+                      <div>
+                        <label class="text-gray-600 mb-2 block">
+                            Last Name <span class="text-primary">*</span>
+                        </label>
+                        <input type="text" class="input-box" placeholder="rammach" v-model="last_name">
                     </div>
                     <div>
                         <label class="text-gray-600 mb-2 block">
                             Email Address <span class="text-primary">*</span>
                         </label>
-                        <input type="email" class="input-box" placeholder="example@mail.com">
+                        <input type="email" class="input-box" placeholder="example@mail.com" v-model="email">
                     </div>
                     <div>
                         <label class="text-gray-600 mb-2 block">Password <span class="text-primary">*</span></label>
-                        <input type="password" class="input-box" placeholder="type password">
+                        <input type="password" class="input-box" placeholder="type password" v-model="password">
                     </div>
                     <div>
                         <label class="text-gray-600 mb-2 block">Confirm Password 
@@ -44,7 +50,7 @@
                     </label>
                 </div>
                 <div class="mt-4">
-                    <button type="submit"
+                    <button type="button" @click="register();"
                         class="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">
                         create account
                     </button>
@@ -64,6 +70,8 @@
 
 import NavBar from "../components/NavBar.vue";
 import Footer from "../components/Footer.vue";
+import axios from "axios";
+
 export default {
   name: "Register",
   
@@ -78,12 +86,39 @@ export default {
     users :[],
     error :false,
     return: {
+      first_name:'', 
+      last_name:'',  
       email:'',
       password:'',
-      birthday:'',
+     
       
   },
   }),
+  methods: {
+   register(){
+      var user ={
+        first_name:this.first_name,
+        last_name:this.last_name,
+        email : this.email,
+        password : this.password
+
+    }
+    axios({
+      method: 'post',
+      url:'http://localhost:7882/e-storea/users/register',
+      data: user
+    })
+    .then(function(response) {
+           window.location.href = './login';
+
+    })
+     .catch(function(error){
+       
+      })
+
+    
+  }
+}
 };
 </script>
 <style lang="scss" scoped>

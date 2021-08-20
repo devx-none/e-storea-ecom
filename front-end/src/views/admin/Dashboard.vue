@@ -58,54 +58,32 @@
               </thead>
               <tbody>
                 <tr>
-                <td>Name</td>
-                <td>Name</td>
+                <td>2012/07/11</td>
+                <td>elmahdi</td>
                 <td><span class="status delivered">Delivered</span></td>
-                <td>Name</td>
+                <td>$20</td>
                 </tr>
                 <tr>
-                <td>Name</td>
-                <td>Name</td>
+                <td>2012/07/12</td>
+                <td>mounir</td>
                 <td><span class="status return">return</span></td>
-                <td>Name</td>              
+                <td>$10</td>              
                 </tr>
                 <tr>
-                <td>Name</td>
-                <td>Name</td>
+                <td>2012/07/11</td>
+                <td>adam</td>
                 <td><span class="status return">return</span></td>
-                <td>Name</td>
+                <td>$10</td>
                
                 </tr>
                 <tr>
-                <td>Name</td>
-                <td>Name</td>
+                <td>2012/07/16</td>
+                <td>youssef</td>
                 <td><span class="status pending">pending</span></td>
-                <td>Name</td>
+                <td>$11</td>
                 </tr>
-                <tr>
-                <td>Name</td>
-                <td>Name</td>
-                <td><span class="status pending">pending</span></td>
-                <td>Name</td>
-                </tr>
-                <tr>
-                <td>Name</td>
-                <td>Name</td>
-                <td><span class="status pending">pending</span></td>
-                <td>Name</td>
-                </tr>
-                <tr>
-                <td>Name</td>
-                <td>Name</td>
-                <td><span class="status pending">pending</span></td>
-                <td>Name</td>
-                </tr>
-                <tr>
-                <td>Name</td>
-                <td>Name</td>
-                <td><span class="status pending">pending</span></td>
-                <td>Name</td>
-                </tr>
+                
+              
               </tbody>
             </table>
           </div>
@@ -122,24 +100,20 @@
                 </tr>
                  <tr>
                   <td><i class="fas fa-user"></i></td>
-                  <td><h4>elmahdi<br><span>elmahdi@gmail.com</span></h4></td>
+                  <td><h4>mounir<br><span>mounir@gmail.com</span></h4></td>
                   
                 </tr>
                  <tr>
                   <td><i class="fas fa-user"></i></td>
-                  <td><h4>elmahdi<br><span>elmahdi@gmail.com</span></h4></td>
+                  <td><h4>adam<br><span>adam@gmail.com</span></h4></td>
                   
                 </tr>
                  <tr>
                   <td><i class="fas fa-user"></i></td>
-                  <td><h4>elmahdi<br><span>elmahdi@gmail.com</span></h4></td>
+                  <td><h4>youssef<br><span>youssef@gmail.com</span></h4></td>
                   
                 </tr>
-                 <tr>
-                  <td><i class="fas fa-user"></i></td>
-                  <td><h4>elmahdi<br><span>elmahdi@gmail.com</span></h4></td>
-                  
-                </tr>
+                
               </tbody>
             </table>
         </div>

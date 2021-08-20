@@ -2,7 +2,7 @@
 <NavBar/>
     <!-- breadcrum -->
     <div class="py-4 container flex gap-3 items-center">
-        <a href="index.html" class="text-primary text-base">
+        <a href="\" class="text-primary text-base">
             <i class="fas fa-home"></i>
         </a>
         <span class="text-sm text-gray-400"><i class="fas fa-chevron-right"></i></span>
@@ -29,7 +29,7 @@
                     class="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap" v-for="product in products" :key="product">
                     <!-- cart image -->
                     <div class="w-32 flex-shrink-0">
-                        <img src="images/products/product9.jpg" class="w-full">
+                        <img :src="require('@/assets/images/products/'+product.image1+'.jpg')" class="w-full">
                     </div>
                     <!-- cart image end -->
                     <!-- cart content -->
@@ -39,71 +39,38 @@
                         </h2>
                         <p class="text-primary font-semibold">${{product.Price}}</p>
                         
+                        
                     </div>
                     <!-- cart content end -->
                     <!-- cart quantity -->
                     <div class="flex border border-gray-300 text-gray-600 divide-x divide-gray-300">
-                        <div class="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none" @click="step--">-</div>
-                        
-                        <div class="h-8 w-10 flex items-center justify-center" >{{step}}</div>
-                        <!-- <input type="text" class="h-8 w-10 flex items-center justify-center" :value="step" > -->
-                        <div class="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none" @click="step++">+</div>
-                    </div>
+                        <div class="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none" @click="compt--">-</div>
+                        <div class="h-8 w-10 flex items-center justify-center">{{compt}}</div>
+                        <div class="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none" @click="compt++">+</div>                    </div>
                     <!-- cart quantity end -->
                     <div class="ml-auto md:ml-0">
-                        <p class="text-primary text-lg font-semibold" ></p>
+                        <p class="text-primary text-lg font-semibold" >${{product.Price*compt}}</p>
                         <input type="text"  :value="product.Price"  hidden >
 
                     </div>
                     <div class="text-gray-600 hover:text-primary cursor-pointer" @click="deleteProduct(product.id)">
-                        <input type="text" v-model="id"  hidden>
+                        <input type="text" v-model="id"  hidden >
                         <i class="fas fa-trash"></i>
                     </div>
                 </div>
                 <!-- single cart end -->
-                <!-- single cart -->
-                <div
-                    class="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
-                    <!-- cart image -->
-                    <div class="w-32 flex-shrink-0">
-                        <img src="images/products/product9.jpg" class="w-full">
-                    </div>
-                    <!-- cart image end -->
-                    <!-- cart content -->
-                    <div class="md:w-1/3 w-full">
-                        <h2 class="text-gray-800 mb-3 xl:text-xl textl-lg font-medium uppercase">
-                            Italian L Shape Sofa
-                        </h2>
-                        <p class="text-primary font-semibold">$45.00</p>
-                        <p class="text-gray-500">Size: M</p>
-                    </div>
-                    <!-- cart content end -->
-                    <!-- cart quantity -->
-                    <div class="flex border border-gray-300 text-gray-600 divide-x divide-gray-300">
-                        <div class="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">-</div>
-                        <div class="h-8 w-10 flex items-center justify-center">4</div>
-                        <div class="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">+</div>
-                    </div>
-                    <!-- cart quantity end -->
-                    <div class="ml-auto md:ml-0">
-                        <p class="text-primary text-lg font-semibold">$320.00</p>
-                    </div>
-                    <div class="text-gray-600 hover:text-primary cursor-pointer">
-                        <i class="fas fa-trash"></i>
-                    </div>
-                </div>
-                <!-- single cart end -->
+            
             </div>
             <!-- shipping carts end -->
         </div>
         <!-- product cart end -->
         <!-- order summary -->
-        <div class="xl:col-span-3 lg:col-span-4 border border-gray-200 px-4 py-4 rounded mt-6 lg:mt-0">
+        <div class="xl:col-span-3 lg:col-span-4 border border-gray-200 px-4 py-4 rounded mt-6 lg:mt-0" >
             <h4 class="text-gray-800 text-lg mb-4 font-medium uppercase">ORDER SUMMARY</h4>
             <div class="space-y-1 text-gray-600 pb-3 border-b border-gray-200">
                 <div class="flex justify-between font-medium">
                     <p>Subtotal</p>
-                    <p>$320</p>
+                    <p>$122</p>
                 </div>
                 <div class="flex justify-between">
                     <p>Delivery</p>
@@ -116,7 +83,7 @@
             </div>
             <div class="flex justify-between my-3 text-gray-800 font-semibold uppercase">
                 <h4>Total</h4>
-                <h4>$320</h4>
+                <h4>$122</h4>
             </div>
 
             <!-- searchbar -->
@@ -132,7 +99,7 @@
             <!-- searchbar end -->
 
             <!-- checkout -->
-            <a href="checkout.html" class="bg-primary border border-primary text-white px-4 py-3 font-medium rounded-md uppercase hover:bg-transparent
+            <a href="/checkout" class="bg-primary border border-primary  px-4 py-3 font-medium rounded-md uppercase hover:bg-transparent
              hover:text-primary transition text-sm w-full block text-center">
                 Process to checkout
             </a>
@@ -160,7 +127,8 @@ export default {
   },
   
   data:()=> ({
-      step: 2,
+      compt:1,
+      
     products: [],
     return: {
  
@@ -170,9 +138,13 @@ export default {
     this.cart();
   },
   methods: {
+      subtotal(){
+
+
+      },
      
     cart() {
-        var id ='4ffacfcf-de4d-11eb-b9b0-747827';
+        var id = localStorage.getItem("userID");
       axios
         .get("http://localhost:7882/e-storea/carts/cart/"+id)
         .then((response) => (this.products = response.data))

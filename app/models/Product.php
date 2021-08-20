@@ -67,6 +67,13 @@ class Product {
         return $this->db->resultSet();
 
     }
+    public function ProductByCategory($category)
+    {
+        $this->db->query("SELECT * FROM products where Category=:category");
+        $this->db->bind(':category', $category);
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
     public function NewArrival()
     {
         $this->db->query("SELECT * FROM `products` ORDER BY created_at DESC LIMIT 4 ");

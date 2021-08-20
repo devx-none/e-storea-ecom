@@ -26,6 +26,19 @@ class Wishlists extends Controller{
         print_r(json_encode($this->wishlistModel->wishlist($userID)));
          
     }
+    //Delete Product Controller
+    public function Delete($id)
+    {
+        $data = file_get_contents("php://input");
+        $data = json_decode($data);
+        // print_r($data);
+        $deleteProduct = $this->wishlistModel->DeleteWishlist($id);
+        if ($deleteProduct) {
+            print_r(json_encode("delete successfly"));
+        } else {
+            print_r(json_encode("echec deleted"));
+        }
+    }
 
 
 

@@ -113,12 +113,16 @@ export default {
         data: user,
       })
         .then(function (response) {
-          localStorage.setItem("reference", response.data[0].reference);
+          localStorage.setItem("userID", response.data[0].userID);
 
-          var ref = localStorage.getItem("reference");
+          var ref = localStorage.getItem("userID");
           if (ref != null) {
-            //  this.$router.push('./slots');
             window.location.href = "./";
+          }else{
+            // window.location.href = "./login";
+                        console.log(ref);
+
+
           }
         })
         .catch(function (error) {});
